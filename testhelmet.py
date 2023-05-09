@@ -45,14 +45,25 @@ while True:
 
     pred = model(img)[0]
     pred = non_max_suppression(pred, conf_thres, iou_thres, classes=None, agnostic=None)
+    # for *xyxy, conf, cls in reversed(pred[0]):
+    #     label = f"{model.names[int(cls)]} {conf:.2f}"
+    #     x1, y1, x2, y2 = map(int, xyxy)
+    #     cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
+    #     cv2.putText(
+    #         frame, label, (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2
+    #     )
     for *xyxy, conf, cls in reversed(pred[0]):
         label = f"{model.names[int(cls)]} {conf:.2f}"
         x1, y1, x2, y2 = map(int, xyxy)
+        # bbox 좌표값을 416x416 이미지 기준으로 변환
+        x1 = int(x1 * frame.shape[1] / img_size)
+        y1 = int(y1 * frame.shape[0] / img_size)
+        x2 = int(x2 * frame.shape[1] / img_size)
+        y2 = int(y2 * frame.shape[0] / img_size)
         cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
         cv2.putText(
             frame, label, (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2
         )
-
         if model.names[int(cls)] == "head":
             head_detected = True
 
