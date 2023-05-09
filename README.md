@@ -1,3 +1,5 @@
+#testhelmet.py가 실제 연동 코드-> bbox 수정 필요
+#detect.py은 구분만 함
 <div align="center">
   <p>
     <a align="center" href="https://ultralytics.com/yolov5" target="_blank">
