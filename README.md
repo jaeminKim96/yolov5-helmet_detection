@@ -1,4 +1,4 @@
-#testhelmet.py가 실제 연동 코드-> bbox 수정 필요
+#testhelmet.py가 실제 연동 코드
 #detect.py은 구분만 함
 <div align="center">
   <p>
