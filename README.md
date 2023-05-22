@@ -1,5 +1,6 @@
-#testhelmet.py가 실제 연동 코드
-#detect.py은 구분만 함
+# 스마트 안전 조끼 프로젝트에 사용하였음
+# testhelmet.py가 실제 연동 코드
+
 <div align="center">
   <p>
     <a align="center" href="https://ultralytics.com/yolov5" target="_blank">
